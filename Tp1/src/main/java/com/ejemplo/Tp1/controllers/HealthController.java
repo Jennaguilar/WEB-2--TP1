@@ -1,0 +1,12 @@
+package com.ejemplo.Tp1.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController 
+public class HealthController {
+    @GetMapping("/api/prueba")
+    public String prueba() {
+        return "¡El servidor Spring Boot funciona correctamente!";
+    }
+}
