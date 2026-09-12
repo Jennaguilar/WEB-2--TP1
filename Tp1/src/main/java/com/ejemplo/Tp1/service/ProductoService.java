@@ -8,6 +8,11 @@ import org.springframework.web.client.RestClient;
 import java.math.BigDecimal;
 import java.util.List;
 
+/*
+*
+* Consume la API externa DummyJSON y mapea la información obtenida.
+*
+*/
 @Service
 public class ProductoService {
     private final RestClient restClient;

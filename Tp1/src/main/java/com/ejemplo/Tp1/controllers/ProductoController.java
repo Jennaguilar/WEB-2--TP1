@@ -24,4 +24,5 @@ public class ProductoController {
     public ProductoDTO buscar(@PathVariable Long id) {
         return service.obtenerPorId(id);
     }
+    //Recibe las peticiones web y expone el catalogo al usuario.
 }

@@ -4,6 +4,8 @@ import com.ejemplo.Tp1.model.Favorito;
 import java.util.List;
 import java.util.Optional;
 
+// Interfaz que define qué acciones se pueden hacer (guardar, listar, eliminar).
+
 public interface FavoritoRepository {
 
     List<Favorito> listarTodos();
