@@ -52,9 +52,30 @@ public class FavoritoService {
             request.notaPersonal(),
             LocalDateTime.now()
         );
-        
-        Favorito guardado = repository.guardar(nuevoFavorito);
-        return mapearAResponse(guardado);
+
+        return mapearAResponse(repository.guardar(nuevoFavorito));
+        //Favorito guardado = repository.guardar(nuevoFavorito);
+        //return mapearAResponse(guardado);
+    }
+
+
+
+    //ACTUALIZAR UN FAVORITO QUE YA EXISTE
+    public Optional<FavoritoResponse> actualizar(Long id, CrearFavoritoRequest request) {
+        return repository.buscarPorId(id).map(existente -> {
+            Favorito actualizado = new Favorito(
+                existente.id(), //ID original
+                request.productoId(),
+                request.notaPersonal(),
+                existente.fechaAgregado() //Se mantiene la fecha original
+            );
+            return mapearAResponse(repository.guardar(actualizado));
+        });
+    }
+
+    //ELIMINAR UN FAVORITO
+    public void eliminar(Long id) {
+        repository.eliminar(id);
     }
 
 }
