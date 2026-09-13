@@ -1,5 +1,6 @@
 package com.ejemplo.Tp1.controllers;
 
+import jakarta.validation.Valid; //
 import com.ejemplo.Tp1.dto.CrearFavoritoRequest;
 import com.ejemplo.Tp1.dto.FavoritoResponse;
 import com.ejemplo.Tp1.service.FavoritoService;
@@ -42,9 +43,10 @@ public class FavoritoController {
 
     //Crear: POST - 201 Created
     @PostMapping
-    public ResponseEntity<FavoritoResponse> crear(@RequestBody CrearFavoritoRequest request) {
+    public ResponseEntity<FavoritoResponse> crear(
+        @Valid @RequestBody CrearFavoritoRequest request) {
         FavoritoResponse creado = service.crear(request);
-        // Usamos ResponseEntity para forzar el código 201 Created
+        //ResponseEntity para forzar el codigo 201 Created
         return ResponseEntity.status(HttpStatus.CREATED).body(creado);
     }
 
@@ -53,8 +55,8 @@ public class FavoritoController {
     //Actualizar: PUT - 200 OK
     @PutMapping("/{id}")
     public ResponseEntity<FavoritoResponse> actualizar(
-            @PathVariable Long id, 
-            @RequestBody CrearFavoritoRequest request) {
+            @PathVariable Long id,
+            @Valid @RequestBody CrearFavoritoRequest request) {
         
         return service.actualizar(id, request)
                 .map(ResponseEntity::ok)
