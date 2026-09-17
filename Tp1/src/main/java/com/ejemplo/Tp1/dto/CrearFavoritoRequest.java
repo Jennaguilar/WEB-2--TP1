@@ -2,13 +2,14 @@ package com.ejemplo.Tp1.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public record CrearFavoritoRequest(
 
-    @NotNull(message = "El ID del producto externo es obligatorio")
+    @NotNull
     Long productoId,
 
-    @NotBlank(message = "La nota personal no puede estar vacía")
+    @NotBlank@Size(max = 200)
     String notaPersonal
 ) {
 

@@ -7,10 +7,8 @@ import java.util.Optional;
 // Interfaz que define qué acciones se pueden hacer (guardar, listar, eliminar).
 
 public interface FavoritoRepository {
-
-    List<Favorito> listarTodos();
+    List<Favorito> buscarTodos();
     Optional<Favorito> buscarPorId(Long id);
     Favorito guardar(Favorito favorito);
     void eliminar(Long id);
-
 }
