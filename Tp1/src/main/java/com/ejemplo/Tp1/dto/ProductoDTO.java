@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public record ProductoDTO(
     Long id,
-    String title,
-    String description,
-    BigDecimal price,
-    int stock
+    String titulo,
+    String descripcion,
+    BigDecimal precio,
+    String categoria
 ) {
     
 }
