@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: demo-postgres
+    environment:
+      POSTGRES_DB: webii_tp2
+      POSTGRES_USER: webii_tp2
+      POSTGRES_PASSWORD: webii_tp2
+    ports:
+      - "5433:5432"
+    volumes:
+      - demo-postgres-data-v2:/var/lib/postgresql/data
+
+volumes:
+  demo-postgres-data-v2:
+
+  
